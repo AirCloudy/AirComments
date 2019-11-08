@@ -2,20 +2,21 @@ import React from 'react';
 import './styles.css';
 const path = require('path');
 
-class Commentbar extends React.Component{
+const Commentbar = (props) => {
 
-    render() {
+
+
         return (
         <div class='flex-container-commentbar-interaction'>
             <div class="flex-container-commentbar">
               <div><img className='headshot' src='http://localhost:4000/headshot.jpg'></img></div>
                 <div>
-                    <form>
-                        <input className="form" type="text" name="inputBox" placeholder="Write a comment" size='60'/>
+                    <form onSubmit = {props.handleAdd}>
+                        <input className="form" type="text" name="inputBox" placeholder="Write a comment" size='60' onChange={props.handleChange}/>
                     </form>
                 </div>
             </div>
-           
+
            <div class='flex-container-interaction-bar'>
             <div class='flex-container-interaction'>
                 <button class='likes'></button>
@@ -39,7 +40,7 @@ class Commentbar extends React.Component{
 
         </div>
         )
-    }
+
 }
 
 export default Commentbar;

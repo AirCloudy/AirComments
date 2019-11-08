@@ -1,0 +1,33 @@
+
+Postgres copy from csv to table
+COPY comments(song_id, user_id, content, time_stamp, track_time)
+FROM '/mnt/c/Users/charl/hrext/SDC/AirComments/generatedData/data.csv' DELIMITER ',' CSV HEADER;
+
+
+
+sudo pv user.csv | psql -U charleyarby -d testing -c "COPY users(id,username,user_pic) FROM STDIN DELIMITER ',' CSV HEADER;"
+
+Remove extra rows with extra or less column
+awk -F, 'NF=2' users3M.csv > /users3M.csv
+
+Inner Join
+testing=# SELECT users.id,
+users.username,
+likes.username_id,
+likes.song_id
+FROM users INNER JOIN likes ON users.id = 7000001 AND likes.username_id=7000001;
+
+Creating Index
+testing=# CREATE INDEX idx_likes_users
+ON likes(username_id);
+
+
+Add foreign key
+testing=# ALTER TABLE comments
+ADD CONSTRAINT song_fk FOREIGN KEY (song_id) REFERENCES songs (id);
+
+
+
+CASSANDRA
+Copy comments into keyspace
+COPY testkeyspace.commentsBySongId(song_id,id,username,user_pic_url,content,time_posted,track_time) FROM '/mnt/c/Users/charl/hrext/SDC/AirComments/generatedData/commentsTestCass.csv' WITH DELIMITER='|' AND HEADER=TRUE;

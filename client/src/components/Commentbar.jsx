@@ -9,7 +9,7 @@ const Commentbar = (props) => {
         return (
         <div class='flex-container-commentbar-interaction'>
             <div class="flex-container-commentbar">
-              <div><img className='headshot' src='http://localhost:4000/headshot.jpg'></img></div>
+              <div><img className='headshot' src='http://localhost:4000/songs/headshot.jpg'></img></div>
                 <div>
                     <form onSubmit = {props.handleAdd}>
                         <input className="form" type="text" name="inputBox" placeholder="Write a comment" size='60' onChange={props.handleChange}/>

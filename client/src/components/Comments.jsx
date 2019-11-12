@@ -17,18 +17,18 @@ class Comments extends React.Component{
 
                 <div class='comment-container-asi'>
                     <div>
-                        <img className='comment-pic' src='http://localhost:4000/headshot.jpg'></img>
+                        <img className='comment-pic' src='http://localhost:4000/songs/headshot.jpg'></img>
                     </div>
                     <div class='flex-comment-container-body'>
                         <div class='flex-comment-container-top-bar'>
                             <div class='flex-comment-container-top-bar-name'>
                                 Aruna
                             </div>
-                            
+
                             <div class='at'>
                                 at
                             </div>
-                            
+
                             <div class='flex-comment-container-top-bar-time'>
                                 0:08:
                             </div>

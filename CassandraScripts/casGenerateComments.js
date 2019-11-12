@@ -14,6 +14,8 @@ const end   = new Date(2019, 11, 04);
 const range = moment.range(start, end)
 const million = 1000000
 var randomNormal = require('random-normal');
+const Uuid = require('cassandra-driver').types.Uuid;
+
 //var normal = distributions.Normal(0.3 /* mean */, 1 /* std deviation */);
 const commentLengthNormal = random.normal(0.2, 0.05)
 const LoremIpsum = require("lorem-ipsum").LoremIpsum;
@@ -44,6 +46,7 @@ function generateSong(writer, encoding, callback) {
       }
       i -= 1;
       id += 1;
+      const commentId = Uuid.random();
       var date = momentRandom(end, start).format("YYYYMMDD")
       var year = date.slice(0,4)
       var username = faker.internet.userName();
@@ -58,7 +61,7 @@ function generateSong(writer, encoding, callback) {
 
       var time_stamp = momentRandom().format("YYYYMMDD");
       var track_time = Math.ceil(Math.random()*400);
-      const data = `${song_id}|${id}|${username}|${user_pic}|${comment}|${time_stamp}|${track_time}\n`;
+      const data = `${song_id}|${commentId}|${username}|${user_pic}|${comment}|${time_stamp}|${track_time}\n`;
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {

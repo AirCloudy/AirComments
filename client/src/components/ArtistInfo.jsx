@@ -7,10 +7,10 @@ class ArtistInfo extends React.Component{
 
     render() {
         return (
-        
+
         <div>
             <div class="flex-container-artist">
-              <div><img className='artistPic' src='http://localhost:4000/artistpic.jpg'></img></div>
+              <div><img className='artistPic' src='http://localhost:4000/songs/artistpic.jpg'></img></div>
               <div className='artistName'>Tierra Whack</div>
               <div class='stats-artist'>
                 <div>
@@ -22,7 +22,7 @@ class ArtistInfo extends React.Component{
                 </div>
                 <div className='fol-stats'>28</div>
 
-              </div>  
+              </div>
                 <button className='followButton'>Follow</button>
            </div>
            <div className='flex-container-report'>

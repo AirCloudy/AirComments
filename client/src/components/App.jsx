@@ -5,6 +5,7 @@ import TrackInfo from './TrackInfo.jsx';
 import Comments from './Comments';
 import './styles.css';
 import Axios from 'axios'
+import ShowComments from './ShowComments.jsx'
 
 class App extends React.Component {
     constructor(props){
@@ -16,7 +17,19 @@ class App extends React.Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleAdd = this.handleAdd.bind(this)
     };
-
+    componentDidMount() {
+        var id=window.location.pathname.split('/')[2]
+        console.log(window.location.href)
+        var url=window.location.href;
+        url = url.split(':')[0]+':' + url.split(':')[1]
+        console.log(url)
+        Axios.get(`${url}:4000/songs/${id}/comments`)
+        .then((data)=> {
+            this.setState({
+                comments: data.data.rows
+            })
+        })
+    }
     handleChange(event) {
         var target = event.target;
         var value = target.value;
@@ -47,9 +60,11 @@ class App extends React.Component {
                     <div className='flex-lower-right'>
                         <TrackInfo/>
                         <Comments/>
+                        <ShowComments allComments={this.state.comments}/>
                     </div>
 
                 </div>
+
             </div>
         )
     }

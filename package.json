@@ -37,7 +37,7 @@
     "jsonexport": "^2.4.1",
     "jszip": "^3.2.2",
     "lorem-ipsum": "^2.0.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "moment-random": "^1.0.5",
     "moment-range": "^4.0.2",
     "mongoose": "^4.6.4",

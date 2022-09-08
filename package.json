@@ -35,7 +35,7 @@
     "fs": "0.0.1-security",
     "json2csv": "^4.5.4",
     "jsonexport": "^2.4.1",
-    "jszip": "^3.2.2",
+    "jszip": "^3.7.0",
     "lorem-ipsum": "^2.0.3",
     "moment": "^2.24.0",
     "moment-random": "^1.0.5",
